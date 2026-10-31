@@ -1,0 +1,599 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Santiago Ruiz — Marca Personal. Estrategias de contenido, diseño web y edición de video en San Gil, Santander.">
+<title>Santiago Ruiz — Marca Personal | Estrategia & Marketing Digital</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Montserrat:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
+<style>
+:root {
+  --black: #0a0a0a;
+  --gold: #C9A84C;
+  --gold-light: #F5D98B;
+  --white: #ffffff;
+  --gray-light: #f8f9fa;
+  --gray-dark: #121212;
+  --gold-trans: rgba(201,168,76,0.12);
+}
+
+*{margin:0;padding:0;box-sizing:border-box;}
+html{scroll-behavior:smooth;}
+body{font-family:'Montserrat',sans-serif;background:var(--white);color:var(--black);overflow-x:hidden;}
+
+::-webkit-scrollbar{width:6px;}
+::-webkit-scrollbar-track{background:var(--black);}
+::-webkit-scrollbar-thumb{background:var(--gold);border-radius:3px;}
+
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding: 16px 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--black);
+  transition: all 0.4s ease;
+}
+
+nav.scrolled {
+  background: rgba(10,10,10,0.95);
+  backdrop-filter: blur(15px);
+  border-bottom: 1px solid rgba(201,168,76,0.3);
+  padding: 12px 40px;
+}
+
+.nav-brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  text-decoration: none;
+}
+
+.nav-avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1.5px solid var(--gold);
+  object-fit: cover;
+  object-position: 50% 15%;
+}
+
+.nav-logo {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--gold);
+  letter-spacing: 1px;
+}
+
+.nav-links {
+  display: flex;
+  gap: 32px;
+  list-style: none;
+  align-items: center;
+}
+
+.nav-links a {
+  color: rgba(255,255,255,0.8);
+  text-decoration: none;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  transition: color 0.3s;
+}
+
+.nav-links a:hover { color: var(--gold); }
+
+.nav-cta {
+  background: var(--gold);
+  color: var(--black);
+  padding: 10px 20px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); }
+
+#hero {
+  min-height: 100vh;
+  background: var(--black);
+  display: flex;
+  align-items: center;
+  position: relative;
+  padding: 120px 40px 80px;
+}
+
+.container { max-width: 1140px; margin: 0 auto; width: 100%; }
+
+.hero-grid {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 60px;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-tag {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 4px;
+  text-transform: uppercase;
+  color: var(--gold);
+  margin-bottom: 16px;
+}
+
+.hero-name {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(48px, 6.5vw, 78px);
+  font-weight: 700;
+  color: var(--white);
+  line-height: 1.05;
+  margin-bottom: 20px;
+}
+
+.hero-name span {
+  background: linear-gradient(135deg, #F5D98B, #C9A84C);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.hero-subtitle {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(255,255,255,0.7);
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 520px;
+}
+
+.hero-slogan {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 20px;
+  font-style: italic;
+  color: var(--gold-light);
+  margin-bottom: 32px;
+  border-left: 2px solid var(--gold);
+  padding-left: 16px;
+}
+
+.hero-btns {
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+}
+
+.btn-primary {
+  background: var(--gold);
+  color: var(--black);
+  padding: 14px 30px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary:hover {
+  background: var(--gold-light);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  border: 1px solid rgba(201,168,76,0.5);
+  color: var(--gold);
+  padding: 14px 30px;
+  border-radius: 2px;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: all 0.3s;
+}
+
+.btn-secondary:hover {
+  border-color: var(--gold);
+  background: rgba(201,168,76,0.08);
+}
+
+.hero-media-col {
+  display: flex;
+  justify-content: center;
+}
+
+.portrait-card {
+  width: 300px;
+  height: 380px;
+  border-radius: 4px;
+  border: 2px solid var(--gold);
+  padding: 8px;
+  position: relative;
+  background: var(--gray-dark);
+  box-shadow: 0 15px 35px rgba(0,0,0,0.5);
+}
+
+.portrait-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 2px;
+  object-fit: cover;
+  object-position: 50% 12%;
+  display: block;
+}
+
+.portrait-frame {
+  position: absolute;
+  bottom: -12px;
+  right: -12px;
+  width: 90px;
+  height: 90px;
+  border-right: 2px solid var(--gold);
+  border-bottom: 2px solid var(--gold);
+  pointer-events: none;
+}
+
+#sobre { padding: 100px 40px; background: var(--white); }
+.section-tag { font-size: 11px; font-weight: 700; letter-spacing: 4px; text-transform: uppercase; color: var(--gold); margin-bottom: 12px; }
+.section-title { font-family: 'Cormorant Garamond', serif; font-size: clamp(36px,5vw,52px); font-weight: 700; color: var(--black); line-height: 1.1; margin-bottom: 40px; }
+
+.sobre-grid {
+  display: grid;
+  grid-template-columns: 0.9fr 1.1fr;
+  gap: 60px;
+  align-items: center;
+}
+
+.sobre-img-wrap {
+  position: relative;
+  border-radius: 4px;
+  overflow: hidden;
+  height: 420px;
+  border: 1px solid #e0e0e0;
+}
+
+.sobre-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sobre-p { font-size: 15px; color: #444; line-height: 1.85; font-weight: 300; margin-bottom: 16px; }
+.sobre-p strong { color: var(--black); font-weight: 600; }
+
+#servicios { padding: 100px 40px; background: var(--black); }
+#servicios .section-title { color: var(--white); }
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.service-card {
+  background: var(--gray-dark);
+  border: 1px solid rgba(255,255,255,0.08);
+  padding: 36px 28px;
+  border-radius: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  border-color: var(--gold);
+  transform: translateY(-4px);
+  background: #181818;
+}
+
+.service-icon {
+  width: 48px;
+  height: 48px;
+  border: 1px solid rgba(201,168,76,0.3);
+  border-radius: 2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.service-icon i { color: var(--gold); font-size: 20px; }
+.service-name { font-family: 'Cormorant Garamond', serif; font-size: 24px; font-weight: 700; color: var(--white); }
+.service-desc { font-size: 13px; color: rgba(255,255,255,0.65); line-height: 1.7; font-weight: 300; flex: 1; }
+
+#porque { padding: 100px 40px; background: var(--black); border-top: 1px solid rgba(255,255,255,0.08); }
+#porque .section-title { color: var(--white); }
+
+.porque-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.porque-card {
+  background: var(--gray-dark);
+  padding: 32px 24px;
+  border-radius: 4px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+
+.porque-card i { color: var(--gold); font-size: 28px; margin-bottom: 16px; }
+.porque-card h3 { font-family: 'Cormorant Garamond', serif; font-size: 20px; color: var(--white); margin-bottom: 12px; }
+.porque-card p { font-size: 13px; color: rgba(255,255,255,0.6); line-height: 1.6; font-weight: 300; }
+
+#contacto { padding: 100px 40px; background: var(--white); }
+
+.contacto-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.contact-form { display: flex; flex-direction: column; gap: 16px; }
+.form-group { display: flex; flex-direction: column; gap: 6px; }
+.form-label { font-size: 11px; font-weight: 600; letter-spacing: 1px; text-transform: uppercase; color: #888; }
+.form-input {
+  padding: 14px 16px;
+  border: 1px solid #e0e0e0;
+  border-radius: 2px;
+  font-family: 'Montserrat', sans-serif;
+  font-size: 13px;
+  color: var(--black);
+  outline: none;
+  transition: border-color 0.3s;
+}
+.form-input:focus { border-color: var(--gold); }
+.form-textarea { resize: vertical; min-height: 120px; }
+
+.social-links {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  margin-top: 24px;
+}
+
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 20px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 600;
+  font-size: 13px;
+  transition: all 0.3s;
+}
+
+.social-btn:hover {
+  border-color: var(--gold);
+  background: var(--gold-trans);
+}
+
+.social-btn i { font-size: 20px; color: var(--gold); }
+
+footer {
+  background: var(--black);
+  padding: 40px 40px 24px;
+  border-top: 1px solid rgba(255,255,255,0.08);
+  color: var(--white);
+  text-align: center;
+}
+
+.wa-float {
+  position: fixed;
+  bottom: 28px;
+  right: 28px;
+  z-index: 500;
+  background: #25d366;
+  color: #fff;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  text-decoration: none;
+  box-shadow: 0 4px 20px rgba(37,211,102,0.4);
+  transition: all 0.3s;
+}
+.wa-float:hover { transform: scale(1.1); }
+
+@media(max-width:900px){
+  nav { padding: 14px 24px; }
+  .nav-links, .nav-cta { display: none; }
+  .hero-grid, .sobre-grid, .contacto-grid { grid-template-columns: 1fr; gap: 40px; }
+  .servicios-grid, .porque-grid { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<nav id="navbar">
+  <a href="#hero" class="nav-brand">
+    <img src="https://i.ibb.co/LXR7411q/Whats-App-Image-2026-05-22-at-9-17-09-PM-1.jpg" alt="Santiago Ruiz" class="nav-avatar">
+    <div class="nav-logo">Santiago Ruiz</div>
+  </a>
+  <ul class="nav-links">
+    <li><a href="#sobre">Sobre mí</a></li>
+    <li><a href="#servicios">Servicios</a></li>
+    <li><a href="#porque">¿Por qué yo?</a></li>
+    <li><a href="#contacto">Contacto</a></li>
+  </ul>
+  <a href="https://wa.me/573214021697?text=Hola%20Santiago%2C%20quiero%20impulsar%20mi%20negocio" target="_blank" class="nav-cta">Hablemos</a>
+</nav>
+
+<section id="hero">
+  <div class="container">
+    <div class="hero-grid">
+      <div>
+        <span class="hero-tag">Marketing Digital & Estrategia</span>
+        <h1 class="hero-name">Santiago <span>Ruiz</span></h1>
+        <p class="hero-subtitle">Ayudo a marcas y emprendimientos a destacar con contenido estratégico, edición audiovisual y desarrollo web.</p>
+        <p class="hero-slogan">"Todo lo puedo en Cristo que me fortalece."</p>
+        <div class="hero-btns">
+          <a href="https://wa.me/573214021697?text=Hola%20Santiago%2C%20quiero%20trabajar%20contigo" target="_blank" class="btn-primary">
+            <i class="fab fa-whatsapp"></i> Escríbeme a WhatsApp
+          </a>
+          <a href="#servicios" class="btn-secondary">Mis Servicios</a>
+        </div>
+      </div>
+
+      <div class="hero-media-col">
+        <div class="portrait-card">
+          <img src="https://i.ibb.co/LXR7411q/Whats-App-Image-2026-05-22-at-9-17-09-PM-1.jpg" alt="Santiago Ruiz" class="portrait-img">
+          <div class="portrait-frame"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="sobre">
+  <div class="container">
+    <div class="sobre-grid">
+      <div class="sobre-img-wrap">
+        <img src="https://i.ibb.co/nNNhG7P/Whats-App-Image-2026-07-19-at-9-02-51-PM.jpg" alt="Santiago Ruiz creando contenido" class="sobre-img">
+      </div>
+      <div>
+        <span class="section-tag">Conóceme</span>
+        <h2 class="section-title">Propósito, Fe & Trabajo</h2>
+        <p class="sobre-p">Soy <strong>Santiago Ruiz</strong>, un joven creyente en que Dios me tiene aquí con un propósito claro. Vengo de una vereda del municipio de Curití, Santander, donde aprendí el verdadero valor del esfuerzo, las raíces y la humildad.</p>
+        <p class="sobre-p">A lo largo de mi camino he entendido que los planes de Dios son más grandes que los nuestros. Por eso, he decidido poner mis dones al servicio de los demás. Encontré en el <strong>marketing digital una habilidad clave que me permite ayudar a emprendedores y empresas</strong> a proyectarse, crecer y generar un impacto positivo en la sociedad.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="servicios">
+  <div class="container">
+    <span class="section-tag">Soluciones Digitales</span>
+    <h2 class="section-title">Servicios Principales</h2>
+    
+    <div class="servicios-grid">
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-video"></i></div>
+        <h3 class="service-name">Creación de Contenido</h3>
+        <p class="service-desc">Planifico y creo contenido estratégico (videos, fotos y tomas aéreas con dron) para que tu marca gane visibilidad, conecte con su audiencia y muestre sus productos de forma profesional.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-film"></i></div>
+        <h3 class="service-name">Edición de Video</h3>
+        <p class="service-desc">Edito Reels, historias y videos de marca de manera remota desde cualquier lugar del mundo, con un estilo dinámico que capta la atención en redes sociales.</p>
+      </div>
+
+      <div class="service-card">
+        <div class="service-icon"><i class="fas fa-laptop-code"></i></div>
+        <h3 class="service-name">Diseño & Páginas Web</h3>
+        <p class="service-desc">Desarrollo sitios web estratégicos, claros y fáciles de navegar, diseñados para que tus clientes entiendan tu propuesta y se contacten contigo rápidamente.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="porque">
+  <div class="container">
+    <span class="section-tag">Experiencia y Compromiso</span>
+    <h2 class="section-title">¿Por qué trabajar conmigo?</h2>
+    
+    <div class="porque-grid">
+      <div class="porque-card">
+        <i class="fas fa-chart-line"></i>
+        <h3>Experiencia Real</h3>
+        <p>He colaborado con marcas de gran trayectoria como <strong>Constructora Noriega Campino</strong>, aportando valor y visión en su presencia digital.</p>
+      </div>
+
+      <div class="porque-card">
+        <i class="fas fa-graduation-cap"></i>
+        <h3>Mejora Constante</h3>
+        <p>Estudio marketing y comunicación de manera continua para brindarte soluciones modernas, actualizadas y efectivas.</p>
+      </div>
+
+      <div class="porque-card">
+        <i class="fas fa-heart"></i>
+        <h3>Servicio con Propósito</h3>
+        <p>Trabajo con dedicación, transparencia y responsabilidad, cuidando cada detalle para que tu proyecto alcance su máximo potencial.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contacto">
+  <div class="container">
+    <div class="contacto-grid">
+      <div>
+        <span class="section-tag">Hablemos</span>
+        <h2 class="section-title">Hablemos de tu negocio</h2>
+        <p style="font-size: 15px; color: #555; line-height: 1.8;">¿Tienes un negocio, un proyecto o quieres dar a conocer tus productos y servicios? Escríbeme, cuéntame tu historia y trabajemos juntos.</p>
+        
+        <div class="social-links">
+          <a href="https://wa.me/573214021697" target="_blank" class="social-btn">
+            <i class="fab fa-whatsapp"></i> WhatsApp: +57 321 402 1697
+          </a>
+          <a href="https://www.instagram.com/el_santi.co?rpxt=eTZxd3RqY3F0bzFw" target="_blank" class="social-btn">
+            <i class="fab fa-instagram"></i> Instagram: @el_santi.co
+          </a>
+          <a href="https://facebook.com" target="_blank" class="social-btn">
+            <i class="fab fa-facebook-f"></i> Facebook: Santiago Ruiz
+          </a>
+        </div>
+      </div>
+
+      <div>
+        <form class="contact-form" action="https://formspree.io/f/xknkyrqg" method="POST">
+          <div class="form-group">
+            <label class="form-label">Tu Nombre</label>
+            <input type="text" name="name" class="form-input" placeholder="Ingresa tu nombre" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Correo o Teléfono</label>
+            <input type="text" name="contact" class="form-input" placeholder="Tu medio de contacto" required>
+          </div>
+          <div class="form-group">
+            <label class="form-label">Cuéntame sobre tu negocio</label>
+            <textarea name="message" class="form-input form-textarea" placeholder="¿Qué hace tu negocio? ¿Qué vende o qué productos/servicios quieres dar a conocer?" required></textarea>
+          </div>
+          <button type="submit" class="btn-primary" style="width: 100%; justify-content: center; border: none; cursor: pointer;">
+            Enviar Mensaje
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="container">
+    <p style="font-family: 'Cormorant Garamond', serif; font-size: 22px; color: var(--gold); font-weight: 700;">Santiago Ruiz</p>
+    <p style="font-size: 12px; color: rgba(255,255,255,0.5); margin-top: 8px;">&copy; 2026 Todos los derechos reservados. San Gil, Santander.</p>
+  </div>
+</footer>
+
+<a href="https://wa.me/573214021697?text=Hola%20Santiago%2C%20quiero%20consultar%20sobre%20tus%20servicios" target="_blank" class="wa-float" aria-label="WhatsApp">
+  <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
